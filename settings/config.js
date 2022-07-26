@@ -92,7 +92,14 @@ global.waifu = [
 "https://a.uguu.se/Rjpxrpsf.mp4",
 "https://a.uguu.se/cHOtFbgp.mp4",
 "https://a.uguu.se/MPwJUTSe.mp4"]
+
+
+
+
+
+
 // Other
+global.web = 'https://s.satganzdevs.repl.co'
 global.owner = ['6281316701742']
 global.premium = ['6281316701742']
 global.botname = 'Satganz Devs'
@@ -104,12 +111,12 @@ global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
 success: '✓ Success',
-admin: 'Group Admin Special Features!',
-botAdmin: 'Bots Should Be Admins First! ',
-owner: 'Special owner bot features!',
-group: 'Feature Used For Group Only! ',
-private: 'Features Used Only For Private Chat! ',
-bot: 'Bot Number User Special Features ',
+admin: 'Group Admin Special Features! o(´^｀)o',
+botAdmin: 'Bots Should Be Admins First!¯_ಠ_ಠ_/¯ ',
+owner: 'Special owner bot features!(✖╭╮✖)',
+group: 'Feature Used For Group Only!(º_º) ',
+private: 'Features Used Only For Private Chat（Ω_Ω）! ',
+bot: 'Bot Number User Special Features( ・_・)ノ ',
 wait: 'Loading...',
 endLimit: 'Your Daily Limit Has Expired, The Limit Will Be Reset Every 12 Hours ',
 }
@@ -117,7 +124,7 @@ global.limitawal = {
 premium: "Infinity",
 free: 20
 }
-global.visoka = fs.readFileSync('./media/SatganzDevs.mp4')
+global.visoka = 'https://a.uguu.se/eDuspRd.mp4'
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
