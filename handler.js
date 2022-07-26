@@ -106,6 +106,7 @@ const vitum= { url : global.visoka }
 	    if (setting) {
 		if (!isNumber(setting.status)) setting.status = 0
 		if (!('autobio' in setting)) setting.autobio = true
+		if (!('autojoin' in setting)) setting.autobio = true
 		if (!('templateImage' in setting)) setting.templateImage = true
 		if (!('templateVideo' in setting)) setting.templateVideo = false
 		if (!('templateGif' in setting)) setting.templateGif = false
@@ -113,6 +114,7 @@ const vitum= { url : global.visoka }
 	    } else global.db.data.settings[botNumber] = {
 		status: 0,
 		autobio: true,
+		autojoin: true,
 		templateImage: true,
 		templateVideo: false,
 		templateGif: false,
@@ -1492,6 +1494,8 @@ break
                 }
              }
              break
+             case 'addprem':
+             
              case 'mute': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
@@ -2044,7 +2048,7 @@ break
                 SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-	    case 'couple': {
+	    case 'couple': case 'cp': {
                 m.reply(mess.wait)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
@@ -2119,7 +2123,7 @@ break
             }
             break
 	        case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': case 'pantun': {
-                let anu = await fetchJson(api('zenz', '/api/'+command, {}, 'apikey'))
+                let anu = `https://zenzapis.xyz/randomtext/${command}?apikey=2c2a76df7d`
                 let buttons = [
                     {buttonId: `${command}`, buttonText: {displayText: `Next ${command}`}, type: 1}
                 ]
@@ -2466,7 +2470,6 @@ break
             }
             break
 	        case 'tiktok': case 'tiktoknowm': {
-                if (!text) throw 'Input URL' 
 	if (!text) throw 'Masukkan Query Link!'
 	let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
 	 let buttons = [
@@ -2474,7 +2477,7 @@ break
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
                 ]
                 let buttonMessage = {
-                    video: { url: anu.result },
+                    video: { url: anu.result.nowm },
                     caption: `Download From ${text}`,
                     footer: 'Press The Button Below',
                     buttons: buttons,
@@ -2559,6 +2562,63 @@ break
                 let anu = await fetchJson(api('zenz', '/downloader/soundcloud', { url: isUrl(text)[0] }, 'apikey'))
                 let msg = await SatganzDevs.sendImage(m.chat, anu.result.thumb, `⭔ Title : ${anu.result.title}\n⭔ Url : ${isUrl(text)[0]}`)
                 SatganzDevs.sendMessage(m.chat, { audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: anu.result.title+'.m4a' }, { quoted: msg })
+            }
+            break
+            case 'hentai':
+            let anu = await fetchJson(api('zenz', '/downloader/hentaivid', 'apikey'))
+            m.reply(mess.wait)
+                let buttons = [
+                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: 'Next Hentai'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video: { url: anu.result.video_1 },
+                    caption: `Title : ${anu.result.title}\n Link ${anu.result.link}\n Category : ${anu.result.category}\n Share :${anu.result.share_count}\n View : ${anu.result.view_count}`,
+                    footer: 'Press The Button Below',
+                    buttons: buttons,
+                    headerType: 5
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            break
+            case 'meme':{
+            let buttons = [
+                    {buttonId: `meme`, buttonText: {displayText: 'Next Meme'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://zenzapis.xyz/randomimage/memeindo?apikey=satganzdevs' },
+                    caption: `Random Meme`,
+                    footer: SatganzDevs.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'darkjokes': case 'darkjoke':{
+            let buttons = [
+                    {buttonId: `darkjoke`, buttonText: {displayText: 'Next Dark Jokes'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://zenzapis.xyz/randomimage/darkjoke?apikey=satganzdevs' },
+                    caption: `Random Dark Jokes`,
+                    footer: SatganzDevs.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'cosplay': {
+            let buttons = [
+                    {buttonId: `cosplay`, buttonText: {displayText: 'Next '}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://zenzapis.xyz/randomimage/cosplay?apikey=satganzdevs' },
+                    caption: `Istri gwekh`,
+                    footer: SatganzDevs.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
 	        case 'twitdl': case 'twitter': {
@@ -3718,7 +3778,7 @@ case 'carbon':{
                                     id: 'owner'
                                 }  
                             }]
-                            let anu =`Selamat ${salam} kak ${pushname}!\n\nScan This Qr Code For ${command} 🔥`
+                            let anu =`${salam}  ${pushname}!\n\nScan This Qr Code For ${command} The Bots🔥`
         let img = { url : 'https://telegra.ph/file/d2cf01e88e3198429df91.jpg' }
 	SatganzDevs.send5ButImg(m.chat, anu, `© Created By Satganz Devs`, img, btn)
 	}
