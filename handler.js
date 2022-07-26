@@ -61,6 +61,7 @@ let audi = global.audio[Math.floor(Math.random() * global.audio.length)]
 const ppkul = { url : gambr }
 const thumby = { url : "https://telegra.ph/file/810bd6a113ac5df28c502.jpg" }
 const audiot = { url : audi }
+const vitum= { url : global.visoka }
         // Group
         const groupMetadata = m.isGroup ? await SatganzDevs.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
@@ -72,7 +73,9 @@ const audiot = { url : audi }
 	const freply = async (teks) => {
 			return await SatganzDevs.sendMessage(m.chat,teks,`Kontol`, pushname,ownername, m)
 		}
-	
+		const randomArr = (arr = []) => {
+            return arr[Math.floor(Math.random() * arr.length)]
+	       }
 	try {
             let isNumber = x => typeof x === 'number' && !isNaN(x)
             let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
@@ -119,6 +122,17 @@ const audiot = { url : audi }
         } catch (err) {
             console.error(err)
         }
+        // auto change profil
+   
+        if (isCmd) {
+        	await SatganzDevs.sendPresenceUpdate('composing', m.chat)
+        }
+        if(isCmd) {
+SatganzDevs.sendReadReceipt(m.chat, m.sender, [m.key.id])
+}
+if(!isMedia) {
+	SatganzDevs.sendReadReceipt(m.chat, m.sender, [m.key.id])
+	}
 	          if (isCmd) {
 let g7=["🥶","😎","🤩","🤗","😀","😃","😆","😁","😄"]
 let p = g7[Math.floor(Math.random() * g7.length)]
@@ -130,6 +144,18 @@ reactionMessage = {
                 }
                 SatganzDevs.sendMessage(m.chat, reactionMessage)
             }
+            
+            if (/^a(s|ss)alamu('|)alaikum$/.test(budy?.toLowerCase())) {
+            const jawab_salam = [
+                'Wa\'alaikumusalam',
+                'Wa\'alaikumusalam wb',
+                'Wa\'alaikumusalam Warohmatulahi Wabarokatuh',
+            ]
+            throw m.reply(randomArr(jawab_salam))
+        }
+        if (/^kon(t|o)l$/.test(budy?.toLowerCase())) {
+        	m.reply(`h`)
+        }
         // Public & Self
         if (!SatganzDevs.public) {
             if (!m.key.fromMe) return
@@ -142,6 +168,8 @@ reactionMessage = {
             console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
 	
+
+// Auto Read2
 	// reset limit every 12 hours
         let cron = require('node-cron')
         cron.schedule('00 12 * * *', () => {
@@ -159,11 +187,17 @@ reactionMessage = {
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await SatganzDevs.setStatus(`\n\n${SatganzDevs.user.name} | Runtime : ${runtime}`)
+		await SatganzDevs.setStatus(`${SatganzDevs.user.name} | Runtime : ${runtime(process.uptime())}`)
 		setting.status = new Date() * 1
 	    }
+	} 
+	//auto profil
+	if (db.data.settings[botNumber].autoprof) {
+	let setting = global.db.data.settings[botNumber]
+	if (new Date() * 1 - setting.status > 1000) {
+        await SatganzDevs.updateProfilePicture(botNumber, { url: gambr })
+	    }
 	}
-	    
 	  // Anti Link
         if (db.data.chats[m.chat].antilink) {
         if (budy.match(`chat.whatsapp.com`)) {
@@ -1517,7 +1551,7 @@ break
                     let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
-                                    url: 's.satganzdevs1.repl.co'
+                                    url: global.web
                                 }
                             }, {
                                 callButton: {
@@ -1556,7 +1590,7 @@ break
 		    let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
-                                    url: 's.satganzdevs1.repl.co'
+                                    url: global.web
                                 }
                             }, {
                                 callButton: {
@@ -1603,7 +1637,7 @@ break
                 let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
-                                    url: 's.satganzdevs1.repl.co'
+                                    url: global.web
                                 }
                             }]
                       let txt = `${text}`
@@ -1690,6 +1724,10 @@ break
             } else {
                 throw `Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`
                 }
+            }
+            break
+            case 'tes': case 'test':{
+            m.reply(`Bot On\n\n\n\n Runtime : ${runtime(process.uptime())}`)
             }
             break
             case 'ebinary': {
@@ -2429,8 +2467,8 @@ break
             break
 	        case 'tiktok': case 'tiktoknowm': {
                 if (!text) throw 'Input URL' 
-	if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) throw 'Invalid URL'
-	let anu = await fetchJson(`https://api2.musical.ly/aweme/v1/aweme/detail/?aweme_id=${q}`)
+	if (!text) throw 'Masukkan Query Link!'
+	let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
 	 let buttons = [
                     {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
@@ -3545,7 +3583,7 @@ Jika Ada Fitur Error Atau Bug Segera Lapor Ke Owner Bot
                 let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
-                                    url: 's.satganzdevs1.repl.co'
+                                    url: global.web
                                 }
                             }, {
                                 callButton: {
@@ -3572,9 +3610,9 @@ Jika Ada Fitur Error Atau Bug Segera Lapor Ke Owner Bot
                         if (setbot.templateImage) {
                         SatganzDevs.send5ButImg(m.chat, anu, `© Created By Satganz Devs`, thumby, btn)
                         } else if (setbot.templateGif) {
-                        SatganzDevs.send5ButGif(m.chat, anu, `© Created By Satganz Devs`, global.visoka, btn)
+                        SatganzDevs.send5ButGif(m.chat, anu, `© Created By Satganz Devs`, vitum, btn)
                         } else if (setbot.templateVid) {
-                        SatganzDevs.send5ButVid(m.chat, anu, `© Created By Satganz Devs`, global.visoka, btn)
+                        SatganzDevs.send5ButVid(m.chat, anu, `© Created By Satganz Devs`, vitum, btn)
                         } else if (setbot.templateMsg) {
                         SatganzDevs.send5ButMsg(m.chat, anu, `© Created By Satganz Dev`, btn)
                         }
@@ -3663,22 +3701,33 @@ case 'carbon':{
 	SatganzDevs.sendMessage(m.chat, { image: { url: res.url }}, { quoted: m })
 	}
 	break
+	 case 'sewabot': case 'rent': case 'sewa': case 'donate': case 'donation': case 'donasi': case 'donet':{
+		let btn = [{
+                                urlButton: {
+                                    displayText: 'Website',
+                                    url: global.web
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Status Bot',
+                                    id: 'ping'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Contact Owner',
+                                    id: 'owner'
+                                }  
+                            }]
+                            let anu =`Selamat ${salam} kak ${pushname}!\n\nScan This Qr Code For ${command} 🔥`
+        let img = { url : 'https://telegra.ph/file/d2cf01e88e3198429df91.jpg' }
+	SatganzDevs.send5ButImg(m.chat, anu, `© Created By Satganz Devs`, img, btn)
+	}
+	break
             default:
 const listTag = [`6281316701742@s.whatsapp.net`]
 const partiNum = (m.mtype === 'extendedTextMessage') ? m.message.extendedTextMessage.contextInfo.participant : ''
 //anti-tag 2 by SatganzDevs
             if (listTag.includes(partiNum)) {
-            	let tagn = fs.readFileSync(`./antag.png`)
-            	let ranmot =[`😠`,`😡`,`🤬`,`😤`,`😒`,`😑`,`👎`,`🖕`]
-            let rannmot = ranmot[Math.floor(Math.random() * ranmot.length)]
-            	reactionMessage = {
-                    react: {
-                        text: rannmot,
-                        key: { remoteJid: m.chat, fromMe: false, id: quoted.id }
-                    }
-                }
-                SatganzDevs.sendMessage(m.chat, reactionMessage)
-                await sleep(100)
                 SatganzDevs.sendImageAsSticker(m.chat, tagn, m, { packname: `Jangan Tag Owner Gwejh`, author: `SatganzDevs` })
             }  
                 if (budy.startsWith('=>')) {
