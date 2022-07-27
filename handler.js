@@ -124,8 +124,7 @@ const vitum= { url : global.visoka }
         } catch (err) {
             console.error(err)
         }
-        // auto change profil
-   
+        
         if (isCmd) {
         	await SatganzDevs.sendPresenceUpdate('composing', m.chat)
         }
@@ -150,7 +149,7 @@ reactionMessage = {
             if (/^a(s|ss)alamu('|)alaikum$/.test(budy?.toLowerCase())) {
             const jawab_salam = [
                 'Wa\'alaikumusalam',
-                'Wa\'alaikumusalam wb',
+                'Wa\'alaikumusalam wrb',
                 'Wa\'alaikumusalam Warohmatulahi Wabarokatuh',
             ]
             throw m.reply(randomArr(jawab_salam))
@@ -197,7 +196,7 @@ reactionMessage = {
 	if (db.data.settings[botNumber].autoprof) {
 	let setting = global.db.data.settings[botNumber]
 	if (new Date() * 1 - setting.status > 1000) {
-        await SatganzDevs.updateProfilePicture(botNumber, { url: gambr })
+        await SatganzDevs.updateProfilePicture(botNumber, { media : { url: gambr }})
 	    }
 	}
 	  // Anti Link
@@ -2564,7 +2563,7 @@ break
                 SatganzDevs.sendMessage(m.chat, { audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: anu.result.title+'.m4a' }, { quoted: msg })
             }
             break
-            case 'hentai':
+            case 'hentai':{
             let anu = await fetchJson(api('zenz', '/downloader/hentaivid', 'apikey'))
             m.reply(mess.wait)
                 let buttons = [
@@ -2578,6 +2577,7 @@ break
                     headerType: 5
                 }
                 SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+                }
             break
             case 'meme':{
             let buttons = [
@@ -3680,7 +3680,6 @@ Jika Ada Fitur Error Atau Bug Segera Lapor Ke Owner Bot
                         SatganzDevs.sendMessage(m.chat, {audio: audiot, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
                      }
             break
-   
             	
             case 'waifu':{
             	let buttons = [
