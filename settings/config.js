@@ -8,39 +8,31 @@ zenz: 'https://zenzapis.xyz',
 
 // Apikey Website Api
 global.APIKeys = {
-'https://zenzapis.xyz': '2c2a76df7d',
+'https://zenzapis.xyz': 'satganzdevs',
 }
 
 //gw benci apikey, maka dari itu gwejh bikin ini.
 global.audio =[
-"https://a.uguu.se/mbcawbZV.mp3",
-"https://a.uguu.se/kpLlUxmb.mp3",
-"https://a.uguu.se/PayhXmdU.mp3",
-"https://a.uguu.se/JZyClUth.mp3",
-"https://a.uguu.se/YsdROKcS.mp3",
-"https://a.uguu.se/pteAZyiV.mp3",
-"https://a.uguu.se/mmLHtoyn.mp3",
-"https://a.uguu.se/ZvHWhxtO.mp3",
-"https://a.uguu.se/PexxWyts.mp3",
-"https://a.uguu.se/VAAbCCpy.mp3",
-"https://a.uguu.se/tgweEeYx.mp3",
-"https://a.uguu.se/WValBgCl.mp3",
-"https://a.uguu.se/XBqeijNm.mp3",
-"https://a.uguu.se/Epkifjlu.mp3",
-"https://a.uguu.se/BBzNdRMn.mp3",
-"https://a.uguu.se/PUWhuRzH.mp3",
-"https://a.uguu.se/QcaeYUZf.m4a",
-"https://a.uguu.se/YUoeJvPZ.mp3",
-"https://a.uguu.se/ufyWCmFC.mp3",
-"https://a.uguu.se/ENopgwBL.mp3",
-"https://a.uguu.se/JaMbwugv.mp3",
-"https://a.uguu.se/YsdROKcS.mp3",
-"https://a.uguu.se/cJSiMNwb.mp3",
-"https://a.uguu.se/pPEWDDVn.aac",
-"https://a.uguu.se/pPEWDDVn.aac",
-"https://a.uguu.se/EjcTkTbi.mp3",
-"https://a.uguu.se/LBuQYreu.mp3"
-]
+"https://a.uguu.se/qsrnwAEh.mp3",
+"https://a.uguu.se/shdWrdxn.mp3",
+"https://a.uguu.se/FWUWQOza.mp3",
+"https://a.uguu.se/mjUXxEvL.mp3",
+"https://a.uguu.se/nylZpfsL.mp3",
+"https://a.uguu.se/akHhlCzB.mp3",
+"https://a.uguu.se/FSvQxBYm.mp3",
+"https://a.uguu.se/iitnbKW.mp3",
+"https://a.uguu.se/bCelzyYF.mp3",
+"https://a.uguu.se/NdJpvBiG.mp3",
+"https://a.uguu.se/cmfNpABW.mp3",
+"https://a.uguu.se/oylHijHs.mp3",
+"https://a.uguu.se/gezozVkJ.mp3",
+"https://a.uguu.se/ytfFxHTA.mp3",
+"https://a.uguu.se/EMGtmVez.mp3",
+"https://a.uguu.se/AXFLdgzm.mp3",
+"https://a.uguu.se/GRnNtCU.mp3",
+"https://a.uguu.se/apSwSuNg.mp3",
+"https://a.uguu.se/jSEjwKjQ.mp3"]
+
 global.gambar =[
 "https://telegra.ph/file/74a73f50e97b2c29a1915.jpg",
 "https://telegra.ph/file/a4250101c9059351b4c2a.jpg",
@@ -101,7 +93,7 @@ global.waifu = [
 // Other
 global.web = 'https://s.satganzdevs.repl.co'
 global.owner = ['6281316701742']
-global.premium = ['6281316701742']
+global.premium = []
 global.botname = 'Satganz Devs'
 global.ownername = 'Satganz Devs'
 global.packname = 'Satganz Devs'
