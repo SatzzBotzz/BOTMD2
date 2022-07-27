@@ -2049,10 +2049,10 @@ break
             break
 	    case 'couple': case 'cp': {
                 m.reply(mess.wait)
-                let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
+                let anu = await fetchJson('https://zenzapis.xyz/randomanime/couples?apikey=satganzdevs')
                 let random = anu[Math.floor(Math.random() * anu.length)]
-                SatganzDevs.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: m })
-                SatganzDevs.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
+                SatganzDevs.sendMessage(m.chat, { image: { url: anu.result.male }, caption: `Couple Male` }, { quoted: m })
+                SatganzDevs.sendMessage(m.chat, { image: { url: anu.result.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
             case 'coffe': case 'kopi': {
@@ -2105,6 +2105,41 @@ break
                 SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
+            case 'tweetmaker':{
+            	if(!text) throw `Example : ${command} username|text`
+let tes1 = text.split("|")[0]
+let tes2 = text.split("|")[1] 
+let anjay = `https://zenzapis.xyz/creator/maketweet?text2=${tes1}&text=${tes2}&apikey=satganzdevs`
+            let buttons = [
+                    {buttonId: `menu`, buttonText: {displayText: 'Menu '}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: anjay },
+                    caption: `by SatganzDevs`,
+                    footer: SatganzDevs.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'kannagen':{
+            	if(!text) throw `Example : ${command} text`
+let tes1 = text.split("|")[0]
+let anjay = `https://zenzapis.xyz/creator/kannagen?text=${tes1}&apikey=satganzdevs`
+            let buttons = [
+                    {buttonId: `menu`, buttonText: {displayText: 'Menu '}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: anjay },
+                    caption: `by SatganzDevs`,
+                    footer: SatganzDevs.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
             case 'quotesanime': case 'quoteanime': {
 		let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
@@ -2122,7 +2157,77 @@ break
             }
             break
 	        case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': case 'pantun': {
-                let anu = `https://zenzapis.xyz/randomtext/${command}?apikey=2c2a76df7d`
+                let anu = await fetchJson(`https://zenzapis.xyz/randomtext/${command}?apikey=satganzdevs`)
+                let buttons = [
+                    {buttonId: `${command}`, buttonText: {displayText: `Next ${command}`}, type: 1}
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Press The Button Below',
+                    buttons: buttons,
+                    headerType: 2
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'creepyfact':{
+              let anu = await fetchJson('https://zenzapis.xyz/randomtext/creepyfact?apikey=satganzdevs')
+                let buttons = [
+                    {buttonId: `${command}`, buttonText: {displayText: `Next ${command}`}, type: 1}
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Press The Button Below',
+                    buttons: buttons,
+                    headerType: 2
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'faktaunik':{
+            	let anu = await fetchJson('https://zenzapis.xyz/randomtext/faktaunik?apikey=satganzdevs')
+                let buttons = [
+                    {buttonId: `${command}`, buttonText: {displayText: `Next ${command}`}, type: 1}
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Press The Button Below',
+                    buttons: buttons,
+                    headerType: 2
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'cersex':{
+            let anu = await fetchJson('https://zenzapis.xyz/randomtext/cersex?apikey=satganzdevs')
+                let buttons = [
+                    {buttonId: `${command}`, buttonText: {displayText: `Next ${command}`}, type: 1}
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Press The Button Below',
+                    buttons: buttons,
+                    headerType: 2
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'cerpen':{
+            let anu = await fetchJson('https://zenzapis.xyz/randomtext/cerpen?apikey=satganzdevs')
+                let buttons = [
+                    {buttonId: `${command}`, buttonText: {displayText: `Next ${command}`}, type: 1}
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Press The Button Below',
+                    buttons: buttons,
+                    headerType: 2
+                }
+                SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'kanyequote':{
+            let anu = await fetchJson('https://zenzapis.xyz/randomtext/kanyequote?apikey=satganzdevs')
                 let buttons = [
                     {buttonId: `${command}`, buttonText: {displayText: `Next ${command}`}, type: 1}
                 ]
@@ -2470,7 +2575,8 @@ break
             break
 	        case 'tiktok': case 'tiktoknowm': {
 	if (!text) throw 'Masukkan Query Link!'
-	let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
+	let nj = `https://zenzapis.xyz/downloader/musically?apikey=satganzdevs&url=${q}`
+	let anu = await fetchJson(nj)
 	 let buttons = [
                     {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
@@ -2564,14 +2670,14 @@ break
             }
             break
             case 'hentai':{
-            let anu = await fetchJson(api('zenz', '/downloader/hentaivid', 'apikey'))
+            let anu = await fetchJson('https://zenzapis.xyz/downloader/hentaivid?apikey=satganzdevs')
             m.reply(mess.wait)
                 let buttons = [
                     {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: 'Next Hentai'}, type: 1}
                 ]
                 let buttonMessage = {
-                    video: { url: anu.result.video_1 },
-                    caption: `Title : ${anu.result.title}\n Link ${anu.result.link}\n Category : ${anu.result.category}\n Share :${anu.result.share_count}\n View : ${anu.result.view_count}`,
+                    video: { url: anu.result.video_2 },
+                    caption: `Sagne Kok Sama Yang Gepeng`,
                     footer: 'Press The Button Below',
                     buttons: buttons,
                     headerType: 5
@@ -2621,6 +2727,9 @@ break
                 SatganzDevs.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
+            case 'sound':{
+            SatganzDevs.sendMessage(m.chat, {audio: audiot, mimetype:'audio/mpeg', ptt:true }, {quoted:m})}
+            break
 	        case 'twitdl': case 'twitter': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
@@ -2666,7 +2775,8 @@ break
 	        case 'pindl': case 'pinterestdl': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/api/downloader/pinterestdl', { url: text }, 'apikey'))
+                let lety =`https://zenzapis.xyz/downloader/pinterestdl?apikey=satganzdevs&url=${q}`
+                let anu = await fetchJson(lety)
                 SatganzDevs.sendMessage(m.chat, { video: { url: anu.result }, caption: `Download From ${text}` }, { quoted: m })
             }
             break
@@ -3638,6 +3748,14 @@ Jika Ada Fitur Error Atau Bug Segera Lapor Ke Owner Bot
 ╭─❒ 「 New Menu 」
 ├ ${prefix}ppkul
 ├ ${prefix}waifu
+├ ${prefix}cosplay
+├ ${prefix}creepyfact
+├ ${prefix}faktaunik
+├ ${prefix}jawaquote
+├ ${prefix}kanyequote
+├ ${prefix}kannagen
+├ ${prefix}tweetmaker
+├ ${prefix}asupan
 ╰❒
 `
                 let btn = [{
@@ -3676,19 +3794,20 @@ Jika Ada Fitur Error Atau Bug Segera Lapor Ke Owner Bot
                         } else if (setbot.templateMsg) {
                         SatganzDevs.send5ButMsg(m.chat, anu, `© Created By Satganz Dev`, btn)
                         }
-                        await sleep(200)
+                        await sleep(100)
                         SatganzDevs.sendMessage(m.chat, {audio: audiot, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
                      }
             break
             	
-            case 'waifu':{
+            case 'asupan':{
             	let buttons = [
-                    {buttonId: `waifu`, buttonText: {displayText: 'Next'}, type: 1}
+                    {buttonId: `.asupan`, buttonText: {displayText: 'Next'}, type: 1}
                 ]
-         let randvid = global.waifu[Math.floor(Math.random() * global.waifu.length)]
+                let rnd =["https://zenzapis.xyz/randomasupan/asupan?apikey=satganzdevs","https://zenzapis.xyz/randomasupan/asupantiktok?apikey=satganzdevs","https://zenzapis.xyz/randomasupan/aeunicetjoaa?apikey=satganzdevs","https://zenzapis.xyz/randomasupan/natajadeh?apikey=satganzdevs"]
+         let randvid = rnd[Math.floor(Math.random() * rnd.length)]
             	let buttonMessage = {
                     video: { url: randvid },
-                    caption: `By Satganz Devs`,
+                    caption: `Random Asupan`,
                     footer: 'Press The Button Below',
                     buttons: buttons,
                     headerType: 5
