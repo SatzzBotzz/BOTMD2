@@ -91,8 +91,7 @@ global.waifu = [
 
 
 // Other
-global.web = 'https://codepen.io/satzzbotzz/full/yLKPjwg
-'
+global.web = 'https://codepen.io/satzzbotzz/full/yLKPjwg'
 global.owner = ['6281316701742']
 global.premium = []
 global.botname = 'Satganz Devs'
