@@ -157,7 +157,7 @@ async function startSatganzDevs() {
                     buttons: buttons,
                     headerType: 5
                 }
-                    SatganzDevs.send5ButImg(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}` }, btn)
+                    SatganzDevs.sendMessage(anu.id, buttonMessage)
                 } else if (anu.action == 'remove') {
                 	let buttons = [{buttonId: `hi`, buttonText: {displayText: 'Good Bye! '}, type: 1}]
                 let buttonMessage = {
