@@ -116,7 +116,7 @@ global.limitawal = {
 premium: "Infinity",
 free: 20
 }
-global.visoka = 'https://a.uguu.se/eDuspRd.mp4'
+global.visoka = 'https://a.uguu.se/XjsdBtsO.mp4'
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
