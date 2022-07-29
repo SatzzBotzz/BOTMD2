@@ -148,31 +148,26 @@ async function startSatganzDevs() {
                 }
 
                 if (anu.action == 'add') {
-                	let btn = [{
-                                urlButton: {
-                                    displayText: 'Newcomers',
-                                    url: `wa.me/${num.split("@")[0]}`                    
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Welcome!!',
-                                    id: 'k'
-                                }
-                            }]
-                    SatganzDevs.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}` })
+                	let buttons = [
+                    {buttonId: `hi`, buttonText: {displayText: 'Welcome '}, type: 1}]
+                let buttonMessage = {
+                    image: { url: ppuser },
+                    caption: `@${num.split("@")[0]} Leaving From ${metadata.subject}`,
+                    footer: 'Good Bye Message',
+                    buttons: buttons,
+                    headerType: 5
+                }
+                    SatganzDevs.send5ButImg(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}` }, btn)
                 } else if (anu.action == 'remove') {
-                	let btn = [{
-                                urlButton: {
-                                    displayText: 'NewLeave',
-                                    url: `wa.me/${num.split("@")[0]}`                    
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Bye Bye!!',
-                                    id: 'k'
-                                }
-                            }]
-                    SatganzDevs.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leaving From ${metadata.subject}` })
+                	let buttons = [{buttonId: `hi`, buttonText: {displayText: 'Good Bye! '}, type: 1}]
+                let buttonMessage = {
+                    image: { url: ppuser },
+                    caption: `@${num.split("@")[0]} Leaving From ${metadata.subject}`,
+                    footer: 'Good Bye Message',
+                    buttons: buttons,
+                    headerType: 5
+                }
+                    SatganzDevs.sendMessage(anu.id, buttonMessage)
                 }
             }
         } catch (err) {
