@@ -2654,7 +2654,7 @@ let anjay = `https://zenzapis.xyz/creator/kannagen?text=${tes1}&apikey=satganzde
             break
 	        case 'tiktok': case 'tiktoknowm': {
 	if (!text) throw 'Masukkan Query Link!'
-	let anu = await fetchJson(await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey')))
+	let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey')))
 	 let buttons = [
                     {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
